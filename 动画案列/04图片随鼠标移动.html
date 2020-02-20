@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0}
+        img{
+            width: 300px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <img src="images/02.jpg" alt="">
+    <script>
+        /* 
+        鼠标获取X轴的距离
+        event.pageX
+        event.clientX
+         */
+         var img=document.getElementsByTagName("img")[0]
+        document.onmousemove=function(event){
+            var pageX=event.clientX;
+            var pageY=event.clientY;
+            img.style.cssText=`left:${pageX}px;top:${pageY}px`
+        }
+    </script>
+</body>
+</html>

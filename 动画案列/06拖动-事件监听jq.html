@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/jquery-3.4.1.js"></script>
+    <style>
+        #move{
+            width: 200px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="move">
+
+    </div>
+    <script>
+        /* 
+            onmouseover
+            onmouseout  鼠标移开
+           onmousedown 鼠标按下
+           onmouseup   鼠标松开
+           addEvendLister   bind
+           removeEventListener   unbind
+        */
+       $("#move").mousedown(function(event){
+           var spaceX=event.clientX-$(this).offset().left;
+           var spaceY=event.clientY-$(this).offset().top;
+           $(document).bind('mousemove',function(event){
+               var left=event.clientX-spaceX;
+               var top=event.clientY-spaceY;
+               $("#move").css({left,top})
+           })
+        })
+        $("#move").mouseup(function(){
+            $(document).unbind("mousemove")
+        })
+    </script>
+</body>
+</html>

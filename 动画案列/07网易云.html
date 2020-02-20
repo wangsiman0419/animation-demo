@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/jquery-3.4.1.js"></script>
+    <script src="lib/http.js"></script>
+    <style>
+        #app{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .item img{
+            width: 300px;
+        }
+        .loading{
+            position: fixed;
+            left: 0;right: 0;top: 0;bottom: 0;
+            background: #fff;
+         }
+    </style>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <div class="loading">
+        <img src="images/loading.gif" alt="">
+    </div>
+    <script>
+        var offset=0
+        http({
+            callback:handleData,
+            data:{
+                offset,
+            }
+        })
+        function handleData(res){
+            var {playlists}=res;
+            var musics=[]
+            playlists.forEach((item,index)=>{
+                var obj={};
+                var {name,coverImgUrl}=item;    //解构
+                obj.name=name.slice(0,8)+"...";
+                obj.imgUrl=coverImgUrl;
+                musics.push(obj);
+            })
+            for(let i=0;i<musics.length;i++){
+            var item=`<div class="item">
+                <img src="${musics[i].imgUrl}"/>
+                <p>${musics[i].name}</p>
+                </div>`
+            $("#app").append(item)
+        }
+        $(window).scroll(function(){
+            if(onReachBottom()){
+                offset+=35;
+                http({
+                   callback:handleData,
+                   data:{
+                       offset
+                   }
+                })
+            }       
+        })
+    }
+    </script>
+</body>
+</html>

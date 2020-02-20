@@ -1,0 +1,59 @@
+* {
+    text-align: center;
+    line-height: 100%;
+    padding: 0;
+    margin: 0;
+    line-height: 100px;
+}
+
+.content {
+    width: 600px;
+    height: 100px;
+    position: relative;
+}
+
+.box1 {
+    width: 50%;
+    height: 100%;
+    background-color: aqua;
+    border-top-right-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+/*被box1和box2盖住，只有box1和box2的圆角被切掉的时候才会显示innerbox1和innerbox2*/
+.innerbox1 {
+    left: 50%;
+    margin-left: -20px;
+    top: 0px;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: black;
+    z-index: 1;
+}
+
+.box2 {
+    width: 50%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    border-bottom-left-radius: 20px;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.innerbox2 {
+    left: 50%;
+    margin-left: -20px;
+    bottom: 0px;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: aqua;
+    z-index: 1;
+}

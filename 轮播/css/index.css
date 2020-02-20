@@ -1,0 +1,224 @@
+*{margin: 0;padding: 0}
+.content{
+    width: 600px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #333;
+    position: relative;
+    top: 100px;
+}
+#list img{
+    position: absolute;
+}
+#list img:not(:first-child){
+    display: none;
+}
+#prev,#next{
+    width: 40px;
+    height: 70px;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    background: url("../images/icon-slides.png");
+    border: none;
+}
+#prev{
+    background-position-x: 83px;
+}
+#prev:hover{
+    background-position-x: 0;
+}
+#next{
+    right: 0;
+    background-position-x: -125px;
+}
+#next:hover{
+    background-position-x: -43px;
+}
+#btns{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 110;
+}
+#btns span{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+#btns .current{
+    background: orangered;
+}
+
+/* 导航 */
+.nav{
+    height: 33px;
+    position: relative;
+    border-bottom: 1px solid #EBEBEB;
+}
+.left{
+    line-height: 33px;
+    position: absolute;
+    left: 15px;
+}
+.right{
+    height: 33px;
+    line-height: 33px;
+    position: absolute;
+    right: 0;
+    font-size: 0;
+}
+.nav a{
+    text-decoration: none;
+    font-size: 12px;
+    color: #555555;
+}
+.left i{
+    color: #FFD21E;
+    font-size: 18px;
+}
+.left a:nth-of-type(3){
+    color: #BADC00;
+    font-weight: bold;
+}
+.left a:nth-of-type(6){
+    text-decoration: underline;
+    margin-left: 5px;
+}
+.left a:nth-of-type(7){
+    text-decoration: underline;
+    margin-left: 15px;
+}
+.left .change-down {
+    width: 35px;
+    border: 1px solid rgb(121, 118, 118);
+    position: absolute;
+    left: 145px;
+    top: 47px;
+    line-height: 20px;
+    text-align: center;
+    display: none;
+    box-shadow: 3px 3px 3px -1px rgb(131, 130, 130)
+}
+.left .change:hover .change-down{
+    display: block;
+}
+.left .manage .change-down{
+    left: 190px;
+}
+.left .manage:hover .change-down{
+    display: block;
+}
+/* 右边 */
+.right a{
+  text-decoration: underline;
+  margin-left: 18px;
+  font-size: 13px;
+  display: inline-block;
+
+}
+.right a:last-child{
+    text-decoration: none;
+}
+.right .titles{
+    font-weight: bold;   
+}
+.right .more{
+    width: 86px;
+    height: 33px;
+    background: #3388FF;
+    color: #fff;
+    text-align: center;
+}
+.user .down,.set .down{
+    width: 68px;
+    height: 88px;
+    position: absolute;
+    top: 33px;
+    border: 1px solid rgb(219, 217, 217);
+    display: none;
+}
+.right .user:hover .down{
+    display: block;
+}
+.right .set:hover .down{
+    display: block;
+}
+.user .down p,.set p{
+    /* height: 22px; */
+    line-height: 22px;
+    padding-left: 8px;
+    font-size: 12px;
+    color: black;
+}
+.user .down p:hover,.set p:hover{
+    background: #3388FF;
+    color: #fff;
+}
+.right .set .down{
+    left: 72%;
+}
+.right .user .down,.set .down{
+    box-shadow: 1px 1px 5px 0px rgb(211, 210, 210);
+}
+.right .more .more-down{
+    position: absolute;
+    right: 0;
+}
+.more-down{
+    width: 84px;
+    border: 1px solid rgb(231, 231, 231);
+    background: #F9F9F9;
+    border-top: none;
+    border-bottom: none;
+    display: none;
+}
+.more .more-down ul{
+    list-style: none;
+}
+.more-down li{
+    width: 60px;
+    border-top: 1px solid rgb(231, 231, 231);
+    margin-left: 15px;
+}
+.more-down img{
+    width: 35px;
+    height: 35px;
+    margin-top: 10px;
+}
+.more-down p{
+    color: #666666;
+    margin-bottom: 3px;
+}
+.more:hover{
+    height: 50px;
+    background: #F9F9F9;
+    color: #555555;
+}
+.more-down li:first-child{
+    margin-top: 10px;
+}
+.more-down p{
+    margin-top: -15px;
+    font-size: 12px;
+}
+.more-down span{
+    color: #555555;
+    font-size: 12px;
+}
+.more-down li:nth-of-type(7){
+    border-bottom: 1px solid rgb(231, 231, 231);
+}
+.more-down p:hover{
+    text-decoration: underline;
+}
+.more-down span:hover{
+    text-decoration: underline;
+}
+.more:hover .more-down{
+    display: block;
+}

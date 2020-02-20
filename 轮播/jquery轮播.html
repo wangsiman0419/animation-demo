@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1348633_lxdb9jcifd.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="left">
+            <a href="#">武汉:</a>
+            <i class="iconfont">&#xe612;</i>
+            <a href="#">32℃</a>
+            <a href="#">良</a>
+            <a href="#">69</a>
+            <a href="#">|</a>
+            <a class="change" href="#">换肤
+                <div class="change-down">
+                    换肤
+                </div>
+            </a>
+            <a class="manage" href="#">消息
+                <div class="change-down">
+                    消息
+                </div>
+            </a>
+        </div>
+       <div class="right">
+            <a class="titles" href="#">新闻</a>
+            <a class="titles" href="#">hao123</a>
+            <a class="titles" href="#">地图</a>
+            <a class="titles" href="#">视频</a>
+            <a class="titles" href="#">贴吧</a>
+            <a class="titles" href="#">学术</a>
+            <a class="user" href="#">0o紫色罗o0
+                <div class="down">
+                    <p>个人中心</p>
+                    <p>账号设置</p>
+                    <p>意见反馈</p>
+                    <p>退出</p>
+                </div>
+            </a>
+            <a class="set" href="#">设置
+                <div class="down">
+                    <p>搜索设置</p>
+                    <p>高级搜索</p>
+                    <p>关闭预测</p>
+                    <p>隐私设置</p>
+                </div>
+            </a>
+            <a class="more" href="#">更多产品
+                <div class="more-down">
+                    <ul>
+                        <li>
+                            <img src="images/糯米.png" alt="">
+                            <p>糯米</p>
+                        </li>
+                        <li>
+                            <img src="images/音乐.png" alt="">
+                            <p>音乐</p>
+                        </li>
+                        <li>
+                            <img src="images/图片.png" alt="">
+                            <p>图片</p>
+                        </li>
+                        <li>
+                            <img src="images/知道.png" alt="">
+                            <p>知道</p>
+                        </li>
+                        <li>
+                            <img src="images/文库.png" alt="">
+                            <p>文库</p>
+                        </li>
+                        <li>
+                            <img src="images/风雨榜.png" alt="">
+                            <p>风云榜</p>
+                        </li>
+                        <li>
+                            <img src="images/百度推广.png" alt="">
+                            <p>百度推广</p>
+                        </li>
+                        <span>全部产品>></span>
+                    </ul>
+                </div>
+            </a>
+       </div>
+    </div>
+    <!-- 轮播 -->
+    <div class="content">
+        <div id="list">
+            <img src="images/01.png" alt="">
+            <img src="images/02.png" alt="">
+            <img src="images/03.png" alt="">
+            <img src="images/04.png" alt="">
+            <img src="images/05.png" alt="">
+        </div>
+        <button id="prev"></button>
+        <button id="next"></button>
+        <div id="btns">
+            <span class="current"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <script>
+        var index=0;
+        $("#next").click(function(){
+            if(!$("#list>img").is(":animated")){
+                index++;
+                if(index>4){
+                    index=0;
+                }
+                animate(index)
+            }
+        })
+        $("#prev").click(function(){
+            if(!$("#list>img").is(":animated")){
+                index--;
+                if(index<0){
+                    index=4;
+                }
+                animate(index)
+            }
+        })
+        $("#btns span").click(function(){
+            index=$(this).index();
+            animate(index)
+        })
+        function animate(index){
+            $("#list img").eq(index).fadeIn(1000).siblings().fadeOut(1000);
+            $("#btns span").eq(index).addClass("current").siblings().removeClass("current")
+        }
+    </script>
+</body>
+</html>

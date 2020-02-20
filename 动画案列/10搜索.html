@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="keyword">  <button @click="handleAdd">添加</button>
+        <h4>历史记录</h4>
+        <button v-for="item of historyWords.slice(0,4)">{{item}}</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data(){
+                return{
+                    msg:"hello world",
+                    keyword:"",
+                    // historyWords长度为5
+                    historyWords:["云烟成雨","芒种","我很快乐"]
+                }
+            },
+            methods:{
+                handleAdd(){
+                    if(!this.historyWords.includes(this.keyword)){
+                        this.historyWords.unshift(this.keyword)
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

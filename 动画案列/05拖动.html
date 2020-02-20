@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #move{
+            width: 200px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="move">
+
+    </div>
+    <script>
+        /* onmousedown 鼠标按下
+           onmouseup   鼠标松开
+        */
+        var move=document.getElementById("move")
+        move.onmousedown=function(event){
+            var clientX=event.clientX;
+            var offsetX=this.offsetLeft;
+            var spaceX=clientX-offsetX;
+            var spaceY=event.clientY-this.offsetTop;
+            document.onmousemove=function(event){
+                let pageX=event.clientX;
+                let left=pageX-spaceX;
+                var top=event.clientY-spaceY;
+                move.style.cssText=`left:${left}px;top:${top}px`
+            }
+        }
+        move.onmouseup=function(){
+            document.onmousemove=null;
+        }
+    </script>
+</body>
+</html>

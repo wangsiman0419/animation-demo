@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="lib/jquery-3.4.1.js"></script>
+    <style>
+        *{margin: 0;padding:0}
+        .small-icons img{
+            width: 116px;
+            height: 116px;
+        }
+        .current{
+            border:2px solid red;
+        }
+        .content img{
+            height: 500px;
+            width: 600px;
+            border: 2px solid red;
+        } 
+    </style>
+</head>
+<body>
+    <div class="small-icons">
+        <img src="images/01.jpg" alt="" class="current">
+        <img src="images/02.jpg" alt="">
+        <img src="images/03.jpg" alt="">
+        <img src="images/04.jpg" alt="">
+        <img src="images/05.jpg" alt="">
+    </div>
+    <div class="content">
+        <img src="images/01.jpg" alt="" class="current">
+    </div>
+    <script>
+        /* 
+        siblings:获取兄弟元素 
+        index()  -->获取元素的下标值
+        */
+        $(".small-icons img").click(function(){
+            $(this).addClass("current").siblings().removeClass("current") 
+            var index=$(this).index();
+            $(".content>img").attr("src",`images/0${index+1}.jpg`)
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+     <div class="content">
+        <div id="list">
+            <img src="images/01.png" alt="">
+            <img src="images/02.png" alt="">
+            <img src="images/03.png" alt="">
+            <img src="images/04.png" alt="">
+            <img src="images/05.png" alt="">
+        </div>
+        <button id="prev"></button>
+        <button id="next"></button>
+        <div id="btns">
+            <span class="current"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <script>
+        var prev=document.getElementById("prev")
+        var next=document.getElementById("next")
+        var lists=document.querySelectorAll("#list>img")
+        var icons=document.querySelectorAll("#btns>span")
+        var index=0;
+        next.onclick=function(){
+            index++;
+            if(index>4){
+                index=0;
+            }
+            show(index)
+        }
+        prev.onclick=function(){
+            index--;
+            if(index<0){
+                index=4
+            }
+            show(index)
+        }
+        for(let i=0;i<icons.length;i++){
+            icons[i].index=i;
+            icons[i].onclick=function(){
+                let currentIndex=this.index;
+                index=currentIndex;
+                show(index)
+            }
+        }
+        function show(index){
+            for(let i=0;i<lists.length;i++){
+                lists[i].style.display="none"
+            }
+            lists[index].style.display="block"
+            for(let i=0;i<icons.length;i++){
+                icons[i].classList.remove("current")
+            }
+            icons[index].classList.add("current")
+        }
+    </script>
+</body>
+</html>

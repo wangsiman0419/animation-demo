@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+    <div class="content">
+        <div class="box1">
+            <h3>分类VIP</h3>
+        </div>
+        <div class="innerbox1"></div>
+        <div class="innerbox2"></div>
+        <div class="box2">
+            <h3>组合套餐4折起</h3>
+        </div>
+    </div>
+    <script>
+        var box1 = document.querySelector(".box1");
+        var box2 = document.querySelector(".box2");
+        var innerbox1 = document.querySelector(".innerbox1");
+        var innerbox2 = document.querySelector(".innerbox2");
+    
+        box2.onclick = () => {
+            box2.style.backgroundColor = "black";
+            box2.style.color = "white";
+            box1.style.backgroundColor = "aqua";
+            box1.style.color = "black";
+            /*点击box2之后改变box2和box1的圆角*/
+            box2.style.borderBottomLeftRadius = "20px";
+            box1.style.borderTopRightRadius = "20px";
+        }
+    
+        box1.onclick = () => {
+            box2.style.backgroundColor = "aqua";
+            box2.style.color = "black";
+            box1.style.backgroundColor = "black";
+            box1.style.color = "white";
+            /*点击box1之后改变box2和box1的圆角*/
+            box2.style.borderTopLeftRadius = "20px";
+            box1.style.borderBottomRightRadius = "20px";
+        }
+    </script>
+</body>
+</html>
